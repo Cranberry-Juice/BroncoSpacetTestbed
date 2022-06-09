@@ -26,7 +26,7 @@ mx = 0.11;         % [kg]
 rhox = [0.05 0 0]; % [m]
 ux = [1 0 0];      % [unitless]
 dx = 0;            % [m]
-
+ 
 my = 0.11;         % [kg]
 rhoy = [0 0.05 0]; % [m]
 uy = [0 1 0];      % [unitless] 
