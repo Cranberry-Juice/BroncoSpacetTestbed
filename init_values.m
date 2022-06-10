@@ -28,13 +28,13 @@ ux = [1 0 0];      % [unitless]
 dx = 0;            % [m]
  
 my = 0.11;         % [kg]
-rhoy = [0.1 0.1 0]; % [m]
+rhoy = [0.1 0 0.1]; % [m]
 uy = [0 -1 0];      % [unitless] 
 dy = 0;            % [m]
 
 mz = 0.11;            % [kg]
-rhoz = [0.1 0 0]; % [m]
-uz = [0 0 -1];         % [unitless]
+rhoz = [0 0 0.1]; % [m]
+uz = [0 0 1];         % [unitless]
 dz = 0;               % [m]
 
 mb = mx + my + mz; % [kg] Total mass of ABS
