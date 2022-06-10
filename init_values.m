@@ -1,6 +1,6 @@
 %% Declares values used in Simulink Main.
 % Units: KMS
-% Coordinate Frame NED
+% Coordinate Frame: World View. X right, Y up, Z out of screen.
 % Nomenclature:
 % SC: Spacecraft
 % CG: Center of Gravity
@@ -23,18 +23,18 @@ R_o = m_sc * r_off; % eq 3 m_total - mb = m_sc
 % Assuming testbed's CG is alligned with CoR without test article in place.
 % Written following Kim and Agrawal
 mx = 0.11;         % [kg]
-rhox = [0.05 0 0]; % [m]
+rhox = [0.1 0 0]; % [m]
 ux = [1 0 0];      % [unitless]
 dx = 0;            % [m]
  
 my = 0.11;         % [kg]
-rhoy = [0 0.05 0]; % [m]
-uy = [0 1 0];      % [unitless] 
+rhoy = [0.1 0.1 0]; % [m]
+uy = [0 -1 0];      % [unitless] 
 dy = 0;            % [m]
 
 mz = 0.11;            % [kg]
-rhoz = [0.05 0.05 0]; % [m]
-uz = [0 0 1];         % [unitless]
+rhoz = [0.1 0 0]; % [m]
+uz = [0 0 -1];         % [unitless]
 dz = 0;               % [m]
 
 mb = mx + my + mz; % [kg] Total mass of ABS
