@@ -13,9 +13,7 @@ I_sc = [130.34 3.01 10.52
         3.02 174.64 -0.4
         10.52 -0.4 181.23]; % In. of Spacecraft. Initial Guess
 
-I_tb = [1 0.1 0.1
-        0.1 1 0.1
-        0.1 0.1 1]; % In. of Testbed w/o balance masses. Initial guess.
+I_tb = TBInertia; % In. of Testbed w/o balance masses. Initial guess.
 
 r_off = [-1 -2 -5] / 100; % cm conv. to meter. Initial CG offest from CoR of SC
 R_o = m_sc * r_off; % eq 3 m_total - mb = m_sc
