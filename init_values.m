@@ -41,7 +41,7 @@ mb = mx + my + mz; % [kg] Total mass of ABS
 m = mb + m_sc; % [kg] Total of mass of ABS + SC
 d = [dx dy dz]; % Initial offset of balance masses. Place in vector for
 % convinience
-
+miU_mat_inv = inv([mx*ux' my*uy' mz*uz']); %inverse matrix of directional vectors U. See notes
 % Alternative Values with manufacturing errors
 % rhox_n= rhox + [0.001 0.002 0.003] % [cm]
 % rhoy_n= rhox + [0.001 0.002 0.003] % [cm] 
