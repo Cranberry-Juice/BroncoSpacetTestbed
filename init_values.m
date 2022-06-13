@@ -35,6 +35,9 @@ I_tb = TBInertia; % In. of Testbed w/o balance masses. Initial guess.
 
 r_off = [-1; 5; -2;] / 100; % cm conv. to meter. Initial CG offest from CoR of SC
 R_o = m_sc * r_off; % eq 3 m_total - mb = m_sc
+
+%% Testbed Properties
+ 
 %% Automatic Mass Balance System
 % Assuming testbed's CG is alligned with CoR without test article in place.
 % Written following Kim and Agrawal
@@ -65,7 +68,7 @@ miU_mat_inv = inv([mx*ux' my*uy' mz*uz']); %inverse matrix of directional vector
 % rhoy_n= rhox + [0.001 0.002 0.003] % [cm] 
 % rhoz_n= rhox + [0.001 0.002 0.003] % [cm]
 % ux_n= ux + [0.001 0.002 0.003] % [unitless]
-% uy_n= uy + [0.001 0.002 0.003] % [unitless]
+% uy_n= uy + [0.001 0.002  0.003] % [unitless]
 % uz_n= uz + [0.001 0.002 0.003] % [unitless] 
 
 stepsz = 1.5e-6; %m Smallest Step size possible for ABS steppers
