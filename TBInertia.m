@@ -1,4 +1,4 @@
-function I = TBInertia
+function [I, m_tb] = TBInertia
 % Roughly estimates the inertia of testbed WITHOUT balance masses. 
 % Values are guesses. Serves as starting point to test control algorithm of
 % ABS
@@ -11,12 +11,14 @@ r = [-0.13111984   0          -0.18725853
 % m. Position of testbed masses relative to Center of rotation
 
 m = [0.813
-     1.65
+     1.75
      0.696
-     1.65
-     1.65]; % kg
+     1.75
+     1.75]; % kg
 
-m_p = 1.3;        % Mass of Plate kg
+m_tb = sum(m);
+
+m_p = 1.193;        % Mass of Plate kg
 R_p = 7.5/39.37;  % radius of plate. Inches converted to meteres
 t_p = 0.25/39.37; %T hickness of plate. Inches converted to meters.
 
