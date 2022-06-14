@@ -35,8 +35,10 @@ I_sc = [Ixx Ixy Ixz
         Iyx Iyy Iyz
         Izx Izy Izz] * ((1/1000) * (1/1000)^2); %kg * m^2
 
-r_off = [-1; 5; -2;] / 100; % cm conv. to meter. Initial CG offest from CoR of SC
-CM_sc_nonNorm = m_sc * r_off; % eq 3 m_total - mb = m_sc. Not "Normalized, must divide by total system masss for true CM.
+r_off = [-1; 5; -2;] / 100; % cm conv. to meter. Initial CG offest from CoR
+% of SC
+CM_sc_nonNorm = m_sc * r_off; % eq 3 m_total - mb = m_sc. Not "Normalized, 
+% must divide by total system masss for true CM.
 
 
 %% Test Bed Mass Properties
@@ -64,7 +66,9 @@ t_p = 0.25/39.37; % Thickness of plate. Inches converted to meters.
 
 m_tb = sum(m_i) + m_p;
 
-% Inertia Tensor of Cylinder https://en.wikipedia.org/wiki/List_of_moments_of_inertia#:~:text=Solid%20cylinder%20of%20radius%20r%2C%20height%20h%20and%20mass%20m.
+% Inertia Tensor of Cylinder https://en.wikipedia.org/wiki/List_of_moments_
+% of_inertia#:~:text=Solid%20cylinder%20of%20radius%20r%2C%20height%20h%20
+% and%20mass%20m.
 Iyy = 0.5 * m_p * R_p^2;
 Ixx = (1/12) * m_p * (3 * R_p ^2  + t_p^2 );
 Izz = Ixx;
@@ -96,7 +100,10 @@ CM_tb_nonNorm = sum(r_i * m_i, 2); % Vector position of Testbed CoM
 
 if use_thanos_properties
     m_balance = 0.4; % Kg
-    m_mat = diag([m_balance m_balance m_balance]);
+    m1 = m_balance;
+    m2 = m1;
+    m3 = m2;
+    m_mat = diag([m1 m2 m3]);
     m_tot_bal = sum(m_mat, 'all');
     u1 = [0 -1 0]';
     u2 = [1 0 -1]';
@@ -113,6 +120,7 @@ if use_thanos_properties
     d2 = 0;
     d3 = 0;
 
+    d = [d1; d2; d3]; % Initial position of masses on moving rod
     % Starting position rho
     rho1 = [ 0           -0.050800102  -0.279400559]'  + d1 * u1;
     rho2 = [ 0.19756603  -0.050800102   0.19756603]' + d2 * u2;
@@ -122,7 +130,10 @@ if use_thanos_properties
 
 else % Use new ABS properties
     m_balance = 0.8; % Kg
-    m_mat = diag([m_balance m_balance m_balance]);
+    m1 = m_balance;
+    m2 = m1;
+    m3 = m2;
+    m_mat = diag([m1 m2 m3]);
     m_tot_bal = sum(m_mat, 'all');
     u1 = [1  0 0]';
     u2 = [0 -1 0]';
@@ -138,7 +149,9 @@ else % Use new ABS properties
     d1 = 0;
     d2 = 0;
     d3 = 0;
-    
+
+    d = [d1; d2; d3]; % Initial position of masses on moving rod
+
     %Starting position rho
     rho1 = [0.1 0 0]' + d1 * u1;
     rho2 = [0.1 0 0.1]' + d2 * u2;
@@ -151,10 +164,20 @@ end
 
 if test_article_loaded
     M_TOT = m_sc + m_tot_bal + m_tb;
-    r_cm_0 = (CM_bm_nonNorm + CM_sc_nonNorm + CM_bm_nonNorm) / M_TOT;
+
+    % initial position of CM offset from CoR.
+    r_cm_0 = (CM_bm_nonNorm + CM_sc_nonNorm + CM_tb_nonNorm) / M_TOT;
+
+    % position vector of center of Center of mass not including balance
+    % masses
+    r_cm_else_nonNorm = CM_sc_nonNorm + CM_tb_nonNorm;
+
 else
     M_TOT = m_tot_bal + m_tb;
-    r_cm_0 = ( CM_bm_nonNorm + CM_bm_nonNorm) / M_TOT;
+    r_cm_0 = ( CM_bm_nonNorm + CM_tb_nonNorm) / M_TOT;
+    r_cm_else_nonNorm =  CM_tb_nonNorm;
+    % position vector of center of Center of mass not including balance
+    % masses
 end
 
 %% Other values
@@ -167,4 +190,4 @@ function U = crossop(u)
 U = [ 0    -u(3)  u(2)
       u(3)  0    -u(1)
      -u(2)  u(1)  0   ];
-end
+end  
