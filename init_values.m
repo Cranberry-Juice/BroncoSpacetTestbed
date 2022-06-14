@@ -151,10 +151,10 @@ end
 
 if test_article_loaded
     M_TOT = m_sc + m_tot_bal + m_tb;
-    r_cm_0 = CM_bm_nonNorm + CM_sc_nonNorm + CM_bm_nonNorm / M_TOT;
+    r_cm_0 = (CM_bm_nonNorm + CM_sc_nonNorm + CM_bm_nonNorm) / M_TOT;
 else
     M_TOT = m_tot_bal + m_tb;
-    r_cm_0 = CM_bm_nonNorm + CM_bm_nonNorm / M_TOT;
+    r_cm_0 = ( CM_bm_nonNorm + CM_bm_nonNorm) / M_TOT;
 end
 
 %% Other values
