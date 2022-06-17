@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<Transform DEF='Mass1'  scale='0.02 0.02 0.02'>
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='1 0.2 0.2'>
+      </Material>
+    </Appearance>
+    <Box>
+    </Box>
+  </Shape>
+</Transform>
+<Transform DEF='Mass2'  scale='0.02 0.02 0.02'>
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='0.4 1 0.4'>
+      </Material>
+    </Appearance>
+    <Box>
+    </Box>
+  </Shape>
+</Transform>
+<Transform DEF='Mass3'  scale='0.02 0.02 0.02'>
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='0.2 0.2 1'>
+      </Material>
+    </Appearance>
+    <Box>
+    </Box>
+  </Shape>
+</Transform>
+<Viewpoint DEF='DefaultViewpoint'  fieldOfView='0.7854' orientation='1 0 0 -0.25' position='0 0.4 1'>
+</Viewpoint>
+<SpotLight DEF='SUN'  location='0 4 4' cutOffAngle='1.570796' beamWidth='0.7854'>
+</SpotLight>
+<Background DEF='Sky' >
+</Background>
+<Transform>
+  <Transform DEF='Plate2' >
+    <Shape>
+      <Appearance>
+        <Material>
+        </Material>
+      </Appearance>
+      <Cylinder radius='0.241' height='0.00635'>
+      </Cylinder>
+    </Shape>
+  </Transform>
+</Transform>
+</Scene>
+</X3D>
