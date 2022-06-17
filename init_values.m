@@ -70,9 +70,7 @@ m_i = [0.813
 
 m_tb = sum(m_i) + m_p;
 
-% Inertia Tensor of Cylinder https://en.wikipedia.org/wiki/List_of_moments_
-% of_inertia#:~:text=Solid%20cylinder%20of%20radius%20r%2C%20height%20h%20
-% and%20mass%20m.
+% Inertia Tensor of Cylinder https://en.wikipedia.org/wiki/List_of_moments_of_inertia#:~:text=Solid%20cylinder%20of%20radius%20r%2C%20height%20h%20and%20mass%20m.
 Iyy = 0.5 * m_p * R_p^2;
 
 % Parallel axis theorem
@@ -184,6 +182,9 @@ if test_article_loaded
     % masses
     r_cm_else_nonNorm = CM_sc_nonNorm + CM_tb_nonNorm;
 
+    %Inertia of System
+    I_sys = I_sc + I_tb;
+
 else
     disp("Test Article unloaded")
     M_TOT = m_tot_bal + m_tb;
@@ -191,6 +192,9 @@ else
     r_cm_else_nonNorm =  CM_tb_nonNorm;
     % position vector of center of Center of mass not including balance
     % masses
+
+    %Inertia of System
+    I_sys = I_sc + I_tb;
 end
 
 %% Other values
