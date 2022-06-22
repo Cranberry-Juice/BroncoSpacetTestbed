@@ -56,13 +56,13 @@ d_bear = 0.075; % Diam of bearing measured
 r_bear = d_bear/2; % Radius of bearing
 
 % Assuming COR is right at surface of plate
-r_i = [-0.13111984   0               -0.18725853
-        0           -0.1016002       -0.22860046
-        0.13470411  -0.01270003      -0.13470411
-        0.152664659 -0.0508001        0.152664659
-       -0.16164493  -0.0508001        0.161644933
-        0            t_p/2            0           % CM of plate
-        0           -r_bear/2     0          ]; % CM of bearing
+r_i = [-0.13111984  0              -0.18725853
+        0          -0.088530       -0.267740    % Z mass balance assembly
+        0.13470411 -0.01270003     -0.13470411
+        0.204432   -0.0304240       0.184972    % X mass balance assembly
+       -0.204008   -0.036000        0.184760    % Y mass balance assembly
+        0           t_p/2           0           % CM of plate
+        0          (-3*r_bear)/8    0        ]; % CM of bearing
 % m. Position of testbed masses relative to Center of rotation
 
 m_i = [0.813
@@ -71,13 +71,13 @@ m_i = [0.813
        1.75
        1.75
        m_p % kg
-       0.420 ]; 
+       m_bear ]; 
 m_tb = sum(m_i) + m_p;
 
 % Inertia of Bearing from bearing spec sheet
-Iyy = 140; % 
+I_bear = 140 * (1/1000^2); % Inertia of bearing kg mm^ converted to kg m^2
 
-
+I_bear = eye(3,3) * I_bear; 
 
 % Inertia Tensor of Cylinder https://en.wikipedia.org/wiki/List_of_moments_of_inertia#:~:text=Solid%20cylinder%20of%20radius%20r%2C%20height%20h%20and%20mass%20m.
 Iyy = 0.5 * m_p * R_p^2;
@@ -91,6 +91,9 @@ I_tb = [Ixx 0   0
         0   Iyy 0
         0   0   Izz]; % Inertia of flat plate
 [nrow, ~] = size(r_i);
+
+% Inertia of flat plate with bearing
+I_tb = I_tb + I_bear;
 
 % Inertia Inertia of Each testbed mass.
 for i = 1:nrow
