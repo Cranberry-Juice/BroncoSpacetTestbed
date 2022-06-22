@@ -51,14 +51,18 @@ CM_sc_nonNorm = m_sc * r_sc_off; % eq 3 m_total - mb = m_sc. Not "Normalized,
 m_p = 1.193;      % Mass of Plate kg
 R_p = 7.5/39.37;  % radius of plate. Inches converted to meteres
 t_p = 0.25/39.37; % Thickness of plate. Inches converted to meters.
+m_bear = 0.420; %  mass of bearing From bearing spec sheet
+d_bear = 0.075; % Diam of bearing measured
+r_bear = d_bear/2; % Radius of bearing
 
 % Assuming COR is right at surface of plate
-r_i = [-0.13111984   0          -0.18725853
-        0           -0.1016002  -0.22860046
-        0.13470411  -0.01270003 -0.13470411
-        0.152664659 -0.0508001   0.152664659
-       -0.16164493  -0.0508001   0.161644933
-        0            t_p/2       0          ]; 
+r_i = [-0.13111984   0               -0.18725853
+        0           -0.1016002       -0.22860046
+        0.13470411  -0.01270003      -0.13470411
+        0.152664659 -0.0508001        0.152664659
+       -0.16164493  -0.0508001        0.161644933
+        0            t_p/2            0           % CM of plate
+        0           -r_bear/2     0          ]; % CM of bearing
 % m. Position of testbed masses relative to Center of rotation
 
 m_i = [0.813
@@ -66,9 +70,14 @@ m_i = [0.813
        0.696
        1.75
        1.75
-       m_p]; % kg
-
+       m_p % kg
+       0.420 ]; 
 m_tb = sum(m_i) + m_p;
+
+% Inertia of Bearing from bearing spec sheet
+Iyy = 140; % 
+
+
 
 % Inertia Tensor of Cylinder https://en.wikipedia.org/wiki/List_of_moments_of_inertia#:~:text=Solid%20cylinder%20of%20radius%20r%2C%20height%20h%20and%20mass%20m.
 Iyy = 0.5 * m_p * R_p^2;
