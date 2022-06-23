@@ -56,9 +56,9 @@ d_bear = 0.075; % Diam of bearing measured
 r_bear = d_bear/2; % Radius of bearing
 
 % Assuming COR is right at surface of plate
-r_i = [-0.13111984  0              -0.18725853
+r_i = [-0.13111984  0.03              -0.18725853
         0          -0.088530       -0.267740    % Z mass balance assembly
-        0.13470411 -0.01270003     -0.13470411
+        0.13470411  0.05     -0.13470411
         0.204432   -0.0304240       0.184972    % X mass balance assembly
        -0.204008   -0.036000        0.184760    % Y mass balance assembly
         0           t_p/2           0           % CM of plate
@@ -117,15 +117,15 @@ CM_tb_nonNorm = sum(r_i * m_i, 2); % Vector position of Testbed CoM
 
 if use_thanos_properties
     disp("Using Thanos TB Mass and ABS Properties")
-    m_balance = 0.6; % Kg
+    m_balance = 0.8; % Kg
     m1 = m_balance;
     m2 = m1;
     m3 = m2;
     m_mat = diag([m1 m2 m3]);
     m_tot_bal = sum(m_mat, 'all');
-    u1 = [0 -1 0]';
+    u1 = [0 1 0]';
     u2 = [1 0 -1]';
-    u3 = [-1 0 -1]';
+    u3 = [1 0 1]';
     u1 = u1/norm(u1);
     u2 = u2/norm(u2);
     u3 = u3/norm(u3);
@@ -140,9 +140,9 @@ if use_thanos_properties
 
     d = [d1; d2; d3]; % Initial position of masses on moving rod
     % Starting position rho
-    rho1 = [ 0           -0.050800102  -0.279400559]'  + d1 * u1;
-    rho2 = [ 0.19756603  -0.050800102   0.19756603]' + d2 * u2;
-    rho3 = [-0.188585756 -0.050800102   0.188585756]' + d3 * u3;
+    rho1 = [ 0          -0.088530       -0.267740 ]'  + d1 * u1;
+    rho2 = [ 0.204432   -0.0304240       0.184972 ]' + d2 * u2;
+    rho3 = [-0.204008   -0.036000        0.184760]' + d3 * u3;
     Rho_i = [rho1 rho2 rho3];
     CM_bm_nonNorm = sum(Rho_i * m_mat, 2);
 
