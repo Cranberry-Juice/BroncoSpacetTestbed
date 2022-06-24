@@ -56,13 +56,13 @@ d_bear = 0.075; % Diam of bearing measured
 r_bear = d_bear/2; % Radius of bearing
 
 % Assuming COR is right at surface of plate
-r_i = [-0.13111984  0.03              -0.18725853
-        0          -0.088530       -0.267740    % Z mass balance assembly
-        0.13470411  0.05     -0.13470411
-        0.204432   -0.0304240       0.184972    % X mass balance assembly
-       -0.204008   -0.036000        0.184760    % Y mass balance assembly
-        0           t_p/2           0           % CM of plate
-        0          (-3*r_bear)/8    0        ]; % CM of bearing
+r_i = [-0.13111984  0.03 +  0.00476            -0.18725853
+        0          -0.088530+  0.00476        -0.267740    % Z mass balance assembly
+        0.13470411  0.05 +  0.00476     -0.13470411
+        0.204432   -0.0304240 +  0.00476       0.184972    % X mass balance assembly
+       -0.204008   -0.036000 +  0.00476        0.184760    % Y mass balance assembly
+        0           t_p/2   +  0.00476         0           % CM of plate
+        0          (-3*r_bear)/8 +  0.00476    0        ]; % CM of bearing
 % m. Position of testbed masses relative to Center of rotation
 
 m_i = [0.813
@@ -117,7 +117,7 @@ CM_tb_nonNorm = sum(r_i * m_i, 2); % Vector position of Testbed CoM
 
 if use_thanos_properties
     disp("Using Thanos TB Mass and ABS Properties")
-    m_balance = 0.8; % Kg
+    m_balance = 0.4; % Kg
     m1 = m_balance;
     m2 = m1;
     m3 = m2;
@@ -140,9 +140,9 @@ if use_thanos_properties
 
     d = [d1; d2; d3]; % Initial position of masses on moving rod
     % Starting position rho
-    rho1 = [ 0          -0.088530       -0.267740 ]'  + d1 * u1;
-    rho2 = [ 0.204432   -0.0304240       0.184972 ]' + d2 * u2;
-    rho3 = [-0.204008   -0.036000        0.184760]' + d3 * u3;
+    rho1 = [ 0          -0.088530 +  0.00476       -0.267740 ]'  + d1 * u1;
+    rho2 = [ 0.204432   -0.0304240  +  0.00476      0.184972 ]' + d2 * u2;
+    rho3 = [-0.204008   -0.036000  +  0.00476       0.184760]' + d3 * u3;
     Rho_i = [rho1 rho2 rho3];
     CM_bm_nonNorm = sum(Rho_i * m_mat, 2);
 
@@ -211,7 +211,7 @@ end
 
 %% Other values
 
-stepsz = 1.5e-6; % m Smallest Step size possible for ABS steppers
+stepsz = 0.0025; % m Smallest Step size possible for ABS steppers
  
 
 function U = crossop(u)
