@@ -66,10 +66,10 @@ r_i = [-0.13111984  0.03 +  0.00476            -0.18725853
 % m. Position of testbed masses relative to Center of rotation
 
 m_i = [0.813
-       1.75
+       1.3
        0.696
-       1.75
-       1.75
+       1.3
+       1.3
        m_p % kg
        m_bear ]; 
 m_tb = sum(m_i);
