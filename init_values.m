@@ -138,7 +138,7 @@ if use_thanos_properties
     d2 = 0;
     d3 = 0;
 
-    d = [d1; d2; d3]; % Initial position of masses on moving rod
+    d_init = [d1; d2; d3]; % Initial position of masses on moving rod
     % Starting position rho
     rho1 = [ 0          -0.088530 +  0.00476       -0.267740 ]'  + d1 * u1;
     rho2 = [ 0.204432   -0.0304240  +  0.00476      0.184972 ]' + d2 * u2;
@@ -171,7 +171,7 @@ else % Use new ABS properties
     d2 = 0;
     d3 = 0;
 
-    d = [d1; d2; d3]; % Initial position of masses on moving rod
+    d_init = [d1 d2 d3]; % Initial position of masses on moving rod
 
     %Starting position rho of balance masses
     rho1 = [0.1 0 0]' + d1 * u1;
