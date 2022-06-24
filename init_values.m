@@ -55,7 +55,7 @@ m_bear = 0.420; %  mass of bearing From bearing spec sheet
 d_bear = 0.075; % Diam of bearing measured
 r_bear = d_bear/2; % Radius of bearing
 
-% Assuming COR is right at surface of plate
+% Assuming COR is just beneath surface of plate
 r_i = [-0.13111984  0.03 +  0.00476            -0.18725853
         0          -0.088530+  0.00476        -0.267740    % Z mass balance assembly
         0.13470411  0.05 +  0.00476     -0.13470411
@@ -72,7 +72,7 @@ m_i = [0.813
        1.75
        m_p % kg
        m_bear ]; 
-m_tb = sum(m_i) + m_p;
+m_tb = sum(m_i);
 
 % Inertia of Bearing from bearing spec sheet
 I_bear = 140 * (1/1000^2); % Inertia of bearing kg mm^ converted to kg m^2
