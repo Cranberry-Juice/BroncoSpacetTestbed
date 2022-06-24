@@ -16,7 +16,7 @@ test_article_loaded = false; % Adds test article mass properties.
 %% Spacecraft Test Aritcle Mass Properties Taken from BS-1 CAD 6/10/22
 m_sc = 2.018492; % [kg] Mass of test article.
 
-% Units: g * mm^2
+% [g * mm^2]
 Ixx = 6.105e6;
 Iyy = 5.865e6;
 Izz = 3.635e6;
