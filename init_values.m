@@ -87,19 +87,19 @@ Ixx = (1/12) * m_p * (3 * R_p ^2  + t_p^2 ) + m_p * (t_p/2)^2;
 
 Izz = Ixx;
 
-I_tb = [Ixx 0   0
+I_TB = [Ixx 0   0
         0   Iyy 0
         0   0   Izz]; % Inertia of flat plate
 [nrow, ~] = size(r_i);
 
 % Inertia of flat plate with bearing
-I_tb = I_tb + I_bear;
+I_TB = I_TB + I_bear;
 
 % Inertia Inertia of Each testbed mass.
 for i = 1:nrow
     R = crossop(r_i(i,:));
     tempI = -m_i(i) * R * R;
-    I_tb = I_tb + tempI; % Total inertia of testbed.
+    I_TB = I_TB + tempI; % Total inertia of testbed.
 end
 
 % CM TestBed W/o balance masses
@@ -195,7 +195,7 @@ if test_article_loaded
     r_cm_else_nonNorm = CM_sc_nonNorm + CM_tb_nonNorm;
 
     %Inertia of System
-    I_sys = I_sc + I_tb;
+    I_sys = I_sc + I_TB;
 
 else
     disp("Test Article unloaded")
@@ -206,7 +206,7 @@ else
     % masses
 
     %Inertia of System
-    I_sys = I_sc + I_tb;
+    I_sys = I_sc + I_TB;
 end
 
 %% Other values
