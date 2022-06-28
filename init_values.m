@@ -12,7 +12,7 @@
 %% Options
 use_thanos_properties = true; % Uses thanos testbed properties and geometry
 test_article_loaded = false; % Adds test article mass properties.
-
+spd_matrix_gain = 0.1; % temp variable to adjust K matrix and Gamma Matrix
 %% Spacecraft Test Aritcle Mass Properties Taken from BS-1 CAD 6/10/22
 m_sc = 2.018492; % [kg] Mass of test article.
 
