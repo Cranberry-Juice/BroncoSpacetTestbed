@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Info Type="StartUp" Visible="0" Icon="" File="mass_prop_Spacecraft.m" Name="mass_prop_Spacecraft">
+    <Extension Value="cecd1a4c-58b0-458c-b2b6-62a6f8292a7b" Name="StartUpPrev" />
+</Info>

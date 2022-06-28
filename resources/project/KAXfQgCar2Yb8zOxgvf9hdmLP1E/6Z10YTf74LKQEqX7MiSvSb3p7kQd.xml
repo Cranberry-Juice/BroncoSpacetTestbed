@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Info Type="StartUp" Visible="0" Icon="" File="abs_geometry_thanos.m" Name="abs_geometry_thanos">
+    <Extension Value="45c3ab82-f3c0-4f15-bb5a-3a42cd223b76" Name="StartUpPrev" />
+</Info>
