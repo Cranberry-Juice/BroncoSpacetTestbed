@@ -13,6 +13,15 @@ m_i = [0.813     % misc mass 1.
        m_bear ]; % CM of bearing.
 m_TB = sum(m_i);
 
+%% Inertia Calculation
+
+R_p = 7.5/39.37;   % radius of plate. Inches converted to meteres
+t_p = 0.25/39.37;  % Thickness of plate. Inches converted to meters.
+d_bear = 0.075;    % Diam of bearing measured
+r_bear = d_bear/2; % Radius of bearing
+
+
+
 %% Position vectors in b.f.f. of non-ABS masses.
 % [meters]
 r_i = [-0.13111984  0.03         -0.18725853    % misc mass 1.
@@ -29,11 +38,3 @@ r_i = [-0.13111984  0.03         -0.18725853    % misc mass 1.
 % plate
 offset_fix = 0.00476;
 r_i(2,:) = r_i(2,:) + offset_fix;
-
-%% Inertia Calculation
-
-R_p = 7.5/39.37;   % radius of plate. Inches converted to meteres
-t_p = 0.25/39.37;  % Thickness of plate. Inches converted to meters.
-d_bear = 0.075;    % Diam of bearing measured
-r_bear = d_bear/2; % Radius of bearing
-
