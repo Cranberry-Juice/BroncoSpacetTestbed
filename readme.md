@@ -53,8 +53,7 @@ window. If not, add the folders through the `Project Path` button in the
 - Legacy
 - VRSinkFiles
 
-## Common errors
-The simulation animation will not run.
+## The simulation animation will not run
 
 VR Sink does not know what `.x3d` file to use to animate the simulation.
 
