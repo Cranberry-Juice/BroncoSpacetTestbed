@@ -9,10 +9,10 @@ and run through MATLAB's project window.
 To start the project always open `BPTestbed.prj` **through MATLAB**.
 This to set the current directory and run the necessary scripts.
 
-The main simulink file is `clean.slx`. With a few exceptions, all other files are supporting files.
+The main simulink file is where the simulation and controller lives is `clean.slx`. With a few exceptions, all other files are supporting files.
 
 ## Closing the project
-Closing the project window 
+Closing the project window closes all related files. 
 
 ## Neccessary MATLAB Add-Ons
 
@@ -61,7 +61,9 @@ VR Sink does not know what `.x3d` file to use to animate the simulation.
 In `clean.slx` > `Animations` submodel, double-click on the `VR Sink` block.
 The block parameters window opens. Under `Virtual World Properties`> `Source file` browse
 to the `VRSinkFiles` folder and select the highest numbered version `.x3d` file. 
-Example `v2.x3d`.
+
+-Example: `v2.x3d`
+
 Click ok. This file contains the necessary 3d information to create the animations.
 
 **Note** : to reduce lag check `Sample time` is set to `0.1` under `Block Properties`
@@ -73,7 +75,9 @@ The block parameter option is under the `Simulation` tab.
 ## Nomenclature
 
 ABS       - Automatic Balance System
+
 TB        - Testbed
+
 mass_prop - Mass properties
 
 
