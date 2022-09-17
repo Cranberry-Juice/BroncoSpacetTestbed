@@ -67,7 +67,8 @@ to the `VRSinkFiles` folder and select the highest numbered version `.x3d` file.
 Click ok. This file contains the necessary 3d information to create the animations.
 
 **Note** : to reduce lag check `Sample time` is set to `0.1` under `Block Properties`
-You may close out of the window.
+
+You may now close out of the window.
 
 Double-clicking on the `VR Sink` block will bring up the simulation environment.
 The block parameter option is under the `Simulation` tab.
