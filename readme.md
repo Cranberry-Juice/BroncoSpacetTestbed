@@ -12,7 +12,7 @@ This sets the current directory and runs the necessary scripts.
 The main simulink file is `clean.slx`. This is where the simulation and controller lives. With a few exceptions, all other files are supporting files.
 
 ## Closing the project
-Closing the project window closes all related files. This ensures the files properly save.
+Closing the project window closes all related files. This ensures the files save properly.
 
 ## Neccessary MATLAB Add-Ons
 
