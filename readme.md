@@ -7,12 +7,12 @@ Version control is managed by MATLAB, files should be added
 and run through MATLAB's project window.
 
 To start the project always open `BPTestbed.prj` **through MATLAB**.
-This to set the current directory and run the necessary scripts.
+This sets the current directory and runs the necessary scripts.
 
-The main simulink file is where the simulation and controller lives is `clean.slx`. With a few exceptions, all other files are supporting files.
+The main simulink file is `clean.slx`. This is where the simulation and controller lives. With a few exceptions, all other files are supporting files.
 
 ## Closing the project
-Closing the project window closes all related files. 
+Closing the project window closes all related files. This ensures the files properly save.
 
 ## Neccessary MATLAB Add-Ons
 
